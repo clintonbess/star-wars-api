@@ -15,6 +15,7 @@ exports.up = function (knex) {
     table.specificType('pilots', 'integer[]')
     table.integer('url')
     table.string('vehicle_class')
+    table.boolean('deleted').defaultTo(false)
     table.timestamp('edited')
     table.timestamp('created')
   })

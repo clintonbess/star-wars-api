@@ -13,6 +13,7 @@ exports.up = function (knex) {
     table.string('surface_water')
     table.string('terrain')
     table.string('url')
+    table.boolean('deleted').defaultTo(false)
     table.timestamp('edited')
     table.timestamp('created')
   })

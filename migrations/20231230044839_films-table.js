@@ -13,6 +13,7 @@ exports.up = function (knex) {
     table.specificType('starships', 'integer[]')
     table.string('url')
     table.specificType('vehicles', 'integer[]')
+    table.boolean('deleted').defaultTo(false)
     table.timestamp('edited')
     table.timestamp('created')
   })
