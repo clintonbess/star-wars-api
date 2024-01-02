@@ -107,12 +107,29 @@ const getStarshipPilots = async (req, res) => {
   }
 }
 
+const deleteStarshipById = async (req, res) => {
+  const starshipId = req.params.id
+
+  try {
+    const deletedStarship = await starshipsModel.deleteById(starshipId)
+    if (!deletedStarship) {
+      return res.status(404).json({ error: 'Starship not found' })
+    }
+
+    res.json(deletedStarship)
+  } catch (err) {
+    console.error(`Error deleting starship with id ${starshipId}:`, err)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
+
 const starshipsController = {
   getAllStarships,
   getStarshipById,
   getStarshipPilots,
   updateStarshipById,
   partialUpdateStarshipById,
+  deleteStarshipById,
 }
 
 export default starshipsController

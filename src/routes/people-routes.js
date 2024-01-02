@@ -11,5 +11,6 @@ peopleRoutes.get('/:id/species', peopleController.getPersonSpecies)
 
 peopleRoutes.put('/:id', peopleController.updatePersonById)
 peopleRoutes.patch('/:id', peopleController.partialUpdatePersonById)
+peopleRoutes.delete('/:id', peopleController.deletePersonById)
 
 export default peopleRoutes

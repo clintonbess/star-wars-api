@@ -9,5 +9,6 @@ vehiclesRoutes.get('/:id', vehiclesController.getVehicleById)
 vehiclesRoutes.post('/', vehiclesController.insertVehicle)
 vehiclesRoutes.put('/:id', vehiclesController.updateVehicleById)
 vehiclesRoutes.patch('/:id', vehiclesController.partialUpdateVehicleById)
+vehiclesRoutes.delete('/:id', vehiclesController.deleteVehicleById)
 
 export default vehiclesRoutes
