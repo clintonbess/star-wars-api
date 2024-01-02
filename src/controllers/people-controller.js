@@ -147,7 +147,7 @@ const deletePersonById = async (req, res) => {
       return res.status(404).json({ error: 'Person not found' })
     }
 
-    res.json(deletedPerson)
+    res.status(204).end()
   } catch (err) {
     console.error(`Error deleting person with id ${peopleId}:`, err)
     res.status(500).json({ error: 'Internal Server Error' })

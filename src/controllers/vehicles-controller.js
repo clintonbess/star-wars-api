@@ -119,7 +119,7 @@ const deleteVehicleById = async (req, res) => {
       return res.status(404).json({ error: 'Vehicle not found' })
     }
 
-    res.json(deletedVehicle)
+    res.status(204).end()
   } catch (err) {
     console.error(`Error deleting vehicle with id ${vehicleId}:`, err)
     res.status(500).json({ error: 'Internal Server Error' })

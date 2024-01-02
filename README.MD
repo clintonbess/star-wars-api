@@ -90,7 +90,7 @@ npm run seed
 
 You can explore and test the API endpoints using the provided Postman collection.
 
-[Star Wars API Postman Collection](https://documenter.getpostman.com/view/4491829/2s9YsDmbDK#3d8b0298-de0d-4303-81c0-8903593405eb)
+[Star Wars API Postman Collection](https://documenter.getpostman.com/view/4491829/2s9YsFCZAM)
 
 All endpoints are protected routes. To access them, you must first register and log in to receive the necessary credentials. Upon logging in, the authentication token will be stored as a cookie for use in subsequent requests.
 
@@ -115,6 +115,7 @@ All endpoints are protected routes. To access them, you must first register and 
 - **GET /api/people/search**: Retrieve a list of people by searching for their character name.
 - **PUT /api/people/:id**: Replace the details of a person with a new record.
 - **PATCH /api/people/:id**: Partially update the details of a person.
+- **DELETE /api/people/:id**: Deletes a person.
 
 ### Planets
 
@@ -135,6 +136,7 @@ All endpoints are protected routes. To access them, you must first register and 
 
 - **PUT /api/starships/:id**: Replace the details of a starship with a new record.
 - **PATCH /api/starships/:id**: Partially update the details of a starship.
+- **DELETE /api/starships/:id**: Deletes a starship.
 
 ### Vehicles
 
@@ -144,6 +146,7 @@ All endpoints are protected routes. To access them, you must first register and 
 - **POST /api/vehicles/**: Insert a new Star Wars vehicle.
 - **PUT /api/vehicles/:id**: Replace the details of a vehicle with a new record.
 - **PATCH /api/vehicles/:id**: Partially update the details of a vehicle.
+- **DELETE /api/vehicles/:id**: Deletes a vehicle.
 
 # Project Information
 

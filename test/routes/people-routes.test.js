@@ -12,10 +12,7 @@ describe('People Routes', () => {
   })
 
   test('GET /api/people should return a list of people', async () => {
-    const response = await request(app)
-      .get('/api/people')
-      .set('Cookie', `access_token=${authToken}`)
-      .expect(200)
+    const response = await request(app).get('/api/people').set('Cookie', `access_token=${authToken}`).expect(200)
     expect(Array.isArray(response.body)).toBe(true)
   })
 
@@ -129,5 +126,13 @@ describe('People Routes', () => {
       .set('Cookie', `access_token=${authToken}`)
       .expect(400)
     expect(response.body).toHaveProperty('error', 'Validation Error')
+  })
+
+  test('DELETE /api/people/:id should respond with 204 status', async () => {
+    const peopleId = 17
+    const response = await request(app)
+      .delete(`/api/people/${peopleId}`)
+      .set('Cookie', `access_token=${authToken}`)
+      .expect(204)
   })
 })
