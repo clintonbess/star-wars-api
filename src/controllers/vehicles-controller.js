@@ -115,7 +115,7 @@ const deleteVehicleById = async (req, res) => {
   try {
     const deletedVehicle = await vehiclesModel.deleteById(vehicleId)
     // Check if vehicle exists
-    if (!deletedVehicle) {
+    if (deletedVehicle == null) {
       return res.status(404).json({ error: 'Vehicle not found' })
     }
 
