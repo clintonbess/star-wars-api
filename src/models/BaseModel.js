@@ -10,7 +10,7 @@ class BaseModel {
   // Method for retrieving all records from a table
   async getAll() {
     try {
-      const query = `SELECT * FROM ${this.tableName}`
+      const query = `SELECT * FROM ${this.tableName} WHERE deleted = FALSE`
       const result = await db.query(query)
       return result.rows
     } catch (err) {
@@ -21,7 +21,7 @@ class BaseModel {
   // Method to retrieve a record by ID
   async getById(id) {
     try {
-      const query = `SELECT * FROM ${this.tableName} WHERE id = $1`
+      const query = `SELECT * FROM ${this.tableName} WHERE id = $1 AND deleted = FALSE`
       const result = await db.query(query, [id])
       return result.rows[0]
     } catch (err) {
@@ -66,6 +66,28 @@ class BaseModel {
 
       const result = await this.db.query(query, [id, ...values])
       // Return null to indicate no update was made
+      if (result.rows.length === 0) {
+        return null
+      }
+
+      return result.rows[0]
+    } catch (err) {
+      throw err
+    }
+  }
+
+  async deleteById(id) {
+    try {
+      const softDeleteQuery = `
+        UPDATE ${this.tableName}
+        SET deleted = TRUE
+        WHERE id = $1 AND deleted = FALSE
+        RETURNING *;
+      `
+
+      const result = await this.db.query(softDeleteQuery, [id])
+
+      // Return null if the record with the specified ID doesn't exist
       if (result.rows.length === 0) {
         return null
       }

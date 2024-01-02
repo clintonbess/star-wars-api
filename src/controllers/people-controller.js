@@ -138,6 +138,22 @@ const partialUpdatePersonById = async (req, res) => {
   }
 }
 
+const deletePersonById = async (req, res) => {
+  const peopleId = req.params.id
+
+  try {
+    const deletedPerson = await peopleModel.deleteById(peopleId)
+    if (!deletedPerson) {
+      return res.status(404).json({ error: 'Person not found' })
+    }
+
+    res.json(deletedPerson)
+  } catch (err) {
+    console.error(`Error deleting person with id ${peopleId}:`, err)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
+
 const peopleController = {
   getAllPeople,
   searchPeople,
@@ -146,6 +162,7 @@ const peopleController = {
   getPersonSpecies,
   updatePersonById,
   partialUpdatePersonById,
+  deletePersonById,
 }
 
 export default peopleController

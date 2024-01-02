@@ -9,5 +9,6 @@ starshipsRoutes.get('/:id/pilots', starshipsController.getStarshipPilots)
 
 starshipsRoutes.put('/:id', starshipsController.updateStarshipById)
 starshipsRoutes.patch('/:id', starshipsController.partialUpdateStarshipById)
+starshipsRoutes.delete('/:id', starshipsController.deleteStarshipById)
 
 export default starshipsRoutes

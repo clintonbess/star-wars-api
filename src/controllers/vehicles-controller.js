@@ -109,12 +109,30 @@ const partialUpdateVehicleById = async (req, res) => {
   }
 }
 
+const deleteVehicleById = async (req, res) => {
+  const vehicleId = req.params.id
+
+  try {
+    const deletedVehicle = await vehiclesModel.deleteById(vehicleId)
+    // Check if vehicle exists
+    if (!deletedVehicle) {
+      return res.status(404).json({ error: 'Vehicle not found' })
+    }
+
+    res.json(deletedVehicle)
+  } catch (err) {
+    console.error(`Error deleting vehicle with id ${vehicleId}:`, err)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
+
 const vehiclesController = {
   getAllVehicles,
   getVehicleById,
   insertVehicle,
   updateVehicleById,
   partialUpdateVehicleById,
+  deleteVehicleById,
 }
 
 export default vehiclesController

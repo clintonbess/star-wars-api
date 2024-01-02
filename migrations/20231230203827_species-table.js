@@ -14,6 +14,7 @@ exports.up = function (knex) {
     table.specificType('people', 'integer[]')
     table.string('skin_colors')
     table.integer('url')
+    table.boolean('deleted').defaultTo(false)
     table.timestamp('edited')
     table.timestamp('created')
   })
