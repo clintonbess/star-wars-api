@@ -10,7 +10,7 @@ class BaseModel {
   // Method for retrieving all records from a table
   async getAll() {
     try {
-      const query = `SELECT * FROM ${this.tableName} WHERE deleted = TRUE`
+      const query = `SELECT * FROM ${this.tableName} WHERE deleted = FALSE`
       const result = await db.query(query)
       return result.rows
     } catch (err) {
@@ -80,7 +80,7 @@ class BaseModel {
     try {
       const softDeleteQuery = `
         UPDATE ${this.tableName}
-        SET deleted = true
+        SET deleted = TRUE
         WHERE id = $1
         RETURNING *;
       `
