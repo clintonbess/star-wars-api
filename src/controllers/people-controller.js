@@ -143,7 +143,7 @@ const deletePersonById = async (req, res) => {
 
   try {
     const deletedPerson = await peopleModel.deleteById(peopleId)
-    if (!deletedPerson) {
+    if (deletedPerson == null) {
       return res.status(404).json({ error: 'Person not found' })
     }
 

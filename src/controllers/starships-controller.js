@@ -112,7 +112,7 @@ const deleteStarshipById = async (req, res) => {
 
   try {
     const deletedStarship = await starshipsModel.deleteById(starshipId)
-    if (!deletedStarship) {
+    if (deletedStarship == null) {
       return res.status(404).json({ error: 'Starship not found' })
     }
 
