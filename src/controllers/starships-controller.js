@@ -116,7 +116,7 @@ const deleteStarshipById = async (req, res) => {
       return res.status(404).json({ error: 'Starship not found' })
     }
 
-    res.json(deletedStarship)
+    res.status(204).end()
   } catch (err) {
     console.error(`Error deleting starship with id ${starshipId}:`, err)
     res.status(500).json({ error: 'Internal Server Error' })
