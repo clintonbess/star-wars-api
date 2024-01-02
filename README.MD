@@ -8,7 +8,7 @@ Welcome to the Star Wars API! This project is my implementation of the Star Wars
 
 ## Testing available with
 
-### [Star Wars API Postman Collection](https://documenter.getpostman.com/view/4491829/2s9YsFCZAM)
+### [Star Wars API Postman Collection](https://documenter.getpostman.com/view/4491829/2s9YsFDZTF)
 
 ## Table of Contents
 
@@ -92,6 +92,14 @@ Seed the tables with data
 
 ```
 npm run seed
+```
+
+#### Refresh Database
+
+Alternatively you can run all of the commands via
+
+```
+npm run refresh
 ```
 
 ## API Endpoints
