@@ -10,6 +10,7 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
+    "refresh": "npm run rollback && npm run migrate && npm run seed",
     "test": "jest"
   },
   "keywords": [],
