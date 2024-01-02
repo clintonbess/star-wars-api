@@ -81,7 +81,7 @@ class BaseModel {
       const softDeleteQuery = `
         UPDATE ${this.tableName}
         SET deleted = TRUE
-        WHERE id = $1
+        WHERE id = $1 AND deleted = FALSE
         RETURNING *;
       `
 
