@@ -12,10 +12,7 @@ describe('Starships Routes', () => {
   })
 
   test('GET /api/starships should return a list of starships', async () => {
-    const response = await request(app)
-      .get('/api/starships')
-      .set('Cookie', `access_token=${authToken}`)
-      .expect(200)
+    const response = await request(app).get('/api/starships').set('Cookie', `access_token=${authToken}`).expect(200)
     expect(Array.isArray(response.body)).toBe(true)
   })
 
@@ -105,5 +102,13 @@ describe('Starships Routes', () => {
       .set('Cookie', `access_token=${authToken}`)
       .expect(400)
     expect(response.body).toHaveProperty('error', 'Validation Error')
+  })
+
+  test('DELETE /api/starships/:id should respond with 204 status', async () => {
+    const starshipId = 5
+    const response = await request(app)
+      .delete(`/api/starships/${starshipId}`)
+      .set('Cookie', `access_token=${authToken}`)
+      .expect(204)
   })
 })
