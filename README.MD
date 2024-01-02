@@ -2,6 +2,14 @@
 
 Welcome to the Star Wars API! This project is my implementation of the Star Wars API based on the provided dataset. This API provides information about Star Wars films, characters, planets, species, starships, and vehicles.
 
+## Hosted Here
+
+### https://star-wars-db-api-b72e907e2488.herokuapp.com/
+
+## Testing available with
+
+### [Star Wars API Postman Collection](https://documenter.getpostman.com/view/4491829/2s9YsFCZAM)
+
 ## Table of Contents
 
 - [Features](#features)
